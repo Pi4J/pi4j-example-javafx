@@ -13,7 +13,7 @@ import java.util.concurrent.TimeUnit;
 
 public class UserInterface extends VBox {
 
-    public UserInterface(Pi4JHelper pi4JHelper) throws Exception {
+    public UserInterface(Pi4JHelper pi4JHelper) {
         setSpacing(50);
         setAlignment(Pos.CENTER);
 

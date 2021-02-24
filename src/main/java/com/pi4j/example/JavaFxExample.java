@@ -13,7 +13,7 @@ package com.pi4j.example;
  * %%
  * Copyright (C) 2012 - 2020 Pi4J
  * %%
- * Licensed under the Apache License, Version 2.0 (the "License");
+ * Licensed under the Apache License, Version 2.0 (the "License"),
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
@@ -55,7 +55,7 @@ public class JavaFxExample extends Application {
      * @param args an array of {@link java.lang.String} objects.
      * @throws java.lang.Exception if any.
      */
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) {
         // Start the JavaFX application
         launch();
     }

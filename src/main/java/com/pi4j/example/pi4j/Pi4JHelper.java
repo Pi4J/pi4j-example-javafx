@@ -13,8 +13,8 @@ public class Pi4JHelper {
     private static final int PIN_BUTTON = 24; // PIN 18 = BCM 24
     private static final int PIN_LED = 22; // PIN 15 = BCM 22
 
-    private static Console console;
-    private static Context pi4j;
+    private final Console console;
+    private final Context pi4j;
 
     public Pi4JHelper() throws Exception {
         console = new Console();

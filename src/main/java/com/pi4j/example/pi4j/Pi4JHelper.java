@@ -28,25 +28,35 @@ public class Pi4JHelper {
         return console;
     }
 
-    public DigitalOutput getLed() throws Exception {
-        var ledConfig = DigitalOutput.newConfigBuilder(pi4j)
-                .id("led")
-                .name("LED")
-                .address(PIN_LED)
-                .shutdown(DigitalState.LOW)
-                .initial(DigitalState.LOW)
-                .provider("pigpio-digital-output");
-        return pi4j.create(ledConfig);
+    public DigitalOutput getLed() {
+        try {
+            var ledConfig = DigitalOutput.newConfigBuilder(pi4j)
+                    .id("led")
+                    .name("LED")
+                    .address(PIN_LED)
+                    .shutdown(DigitalState.LOW)
+                    .initial(DigitalState.LOW)
+                    .provider("pigpio-digital-output");
+            return pi4j.create(ledConfig);
+        } catch (Exception ex) {
+            console.println("Can not init the LED: " + ex.getMessage());
+        }
+        return null;
     }
 
-    public DigitalInput getButton() throws Exception {
-        var buttonConfig = DigitalInput.newConfigBuilder(pi4j)
-                .id("button")
-                .name("Press button")
-                .address(PIN_BUTTON)
-                .pull(PullResistance.PULL_DOWN)
-                .debounce(3000L)
-                .provider("pigpio-digital-input");
-        return pi4j.create(buttonConfig);
+    public DigitalInput getButton() {
+        try {
+            var buttonConfig = DigitalInput.newConfigBuilder(pi4j)
+                    .id("button")
+                    .name("Press button")
+                    .address(PIN_BUTTON)
+                    .pull(PullResistance.PULL_DOWN)
+                    .debounce(3000L)
+                    .provider("pigpio-digital-input");
+            return pi4j.create(buttonConfig);
+        } catch (Exception ex) {
+            console.println("Can not init the button: " + ex.getMessage());
+        }
+        return null;
     }
 }

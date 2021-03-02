@@ -8,7 +8,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.concurrent.TimeUnit;
 
 public class UserInterface extends VBox {
@@ -36,7 +36,7 @@ public class UserInterface extends VBox {
         if (physicalButton != null) {
             physicalButton.addListener(e -> {
                 if (e.state() == DigitalState.LOW) {
-                    Platform.runLater(() -> lbl.setText("Pressed button on " + LocalDate.now()));
+                    Platform.runLater(() -> lbl.setText("Pressed button on " + LocalDateTime.now()));
                 }
             });
         }

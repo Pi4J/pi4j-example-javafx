@@ -35,9 +35,6 @@ import javafx.stage.Stage;
 
 /**
  * <p>This example fully describes the base usage of Pi4J in combination with JavaFX.</p>
- *
- * @author Frank Delporte (<a href="https://www.webtechie.be">https://www.webtechie.be</a>)
- * @version $Id: $Id
  */
 public class JavaFxExample extends Application {
 

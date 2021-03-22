@@ -14,8 +14,11 @@ import java.util.concurrent.TimeUnit;
 public class UserInterface extends VBox {
 
     public UserInterface(Pi4JHelper pi4JHelper) {
-        setSpacing(50);
+        setSpacing(20);
         setAlignment(Pos.CENTER);
+
+        getChildren().add(new Label("Java version: " + System.getProperty("java.version")));
+        getChildren().add(new Label("JavaFX version: " + System.getProperty("javafx.version")));
 
         var led = pi4JHelper.getLed();
         Button bt = new Button("Toggle LED for 2 seconds");

@@ -21,7 +21,7 @@
         <maven.compiler.target>${java.version}</maven.compiler.target>
 
         <!-- DEPENDENCIES VERSIONS -->
-        <slf4j.version>1.7.30</slf4j.version>
+        <slf4j.version>1.7.32</slf4j.version>
         <pi4j.version>2.0</pi4j.version>
         <javafx.version>15.0.1</javafx.version>
 

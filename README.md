@@ -26,29 +26,47 @@ dependency comes pre-installed on recent Raspbian images.  However, you can also
 download and install it yourself using the instructions found 
 [here](http://abyz.me.uk/rpi/pigpio/download.html).
 
+As this application has a JavaFX user interface, the project requires the OpenJFX runtime. When the package is build,
+then the runtime is downloaded and added to the distribution directory.
+
 ## BUILD DEPENDENCIES & INSTRUCTIONS
 
-This project can be built with [Apache Maven](https://maven.apache.org/) 3.6 
-(or later) and Java 11 OpenJDK (or later). These prerequisites must be installed 
-prior to building this project.  The following command can be used to download 
-all project dependencies and compile the Java module.  You can build this 
-project directly on a Raspberry Pi with Java 11+.  
+This project can be built with [Apache Maven](https://maven.apache.org/) 3.6 (or later) and Java 17 OpenJDK (or later).
+These prerequisites must be installed prior to building this project. The following command can be used to download all
+project dependencies and compile the Java module. You can build this project directly on a Raspberry Pi with Java 17+.
 
-```
+```bash
 mvn clean package
 ```
 
 ### Compiled application to run on the Raspberry Pi
 
-Once the build is complete and was successful, you can find the compiled 
-artifacts in the `target` folder.  Specifically 
-all dependency modules (JARs) and a simple `run.sh` bash script will be located in the 
-`target/distribution`.  
+Once the build is complete and was successful, you can find the compiled artifacts in the `target` folder. Specifically
+all dependency modules (JARs) and a simple `run.sh` bash script will be located in the `target/distribution` folder.
+This folder contains all the required files needed to distribute (copy) to your Raspberry Pi to run this project.
 
-These are all the required files needed to distribute (copy) to your
-Raspberry Pi to run this project.  If you are using the native bindings running 
-locally on the Raspberry Pi, then you make have to run the program using `sudo` 
-to gain the necessary access permissions to the hardware I/O. 
+For your convenience, this `distribution` folder is zipped up, and is also located in the `target/` folder. Copy this
+file to your Raspberry Pi, for example with the following command:
+
+```bash
+rsync target/pi4j-example-fxgl-0.0.1.zip pi@192.8.0.124:.
+```
+
+Then on the Raspberry Pi unzip the file with the following command:
+
+```bash
+unzip pi4j-example-fxgl-0.0.1.zip
+```
+
+Now the example can be started with the following command:
+
+```bash
+cd pi4j-example-fxgl-0.0.1/
+./run.sh
+```
+
+*Note:* If you are using the native bindings running locally on the Raspberry Pi, then you may have to run the program
+using `sudo` to gain the necessary access permissions to the hardware I/O.
 
 This is the list of files created by the build process of this example application:
 
@@ -59,14 +77,9 @@ This is the list of files created by the build process of this example applicati
 * pi4j-plugin-raspberrypi
 * slf4j-api
 * slf4j-simple
+* javafx-*
+* and additional dependencies required for JavaFX and FXGL
 * run.sh --> this is the actual start file which will run pi4j-example-javafx
-
-Make the run script executable and start it like this:
-
-```
-chmod +x run.sh
-sudo ./run.sh
-```
 
 ## LICENSE
 
